@@ -10,18 +10,18 @@ import {CiSearch} from "react-icons/ci";
 function MainNavigation() {
 
     return <nav
-        className='fixed top-0 left-0 right-0 w-full h-14 flex justify-between items-center alig py-4 text-white px-4'>
-        <div className='flex justify-center text-white'>
+        className='fixed top-0 left-0 right-0 w-full min-h-10 flex justify-between items-center py-3 text-white px-3'>
+        <div className='flex justify-center '>
             <button className='text-2xl p-2'><TbMenu2/></button>
             <Link to='/' className='p-2 flex justify-center items-center '><img className='h-5' src={MainLogo}
                                                                                 alt='Youtube'/></Link>
         </div>
-        <div className='flex items-center max-w-3xl flex-1 mx-3'>
-            <form className='h-5 relative flex w-full'>
-                <div className='relative flex items-center border border-gray-700 rounded-3xl py-5 px-3 w-full'>
-                    <div className='w-full flex'>
+        <div className='flex items-center max-w-3xl flex-1 mx-3 '>
+            <form className='h-6 flex justify-center items-center w-full'>
+                <div className=' flex items-center border border-gray-700 rounded-3xl px-4  w-full'>
+                    <div className='w-full flex '>
                         <input id='search' placeholder='Pretrazite' type='search'
-                               className='border-0 outline-0 pl-2 px-2 m-0 w-full bg-transparent rounded-3xl focus:border-0 focus:ring-0 '/>
+                               className='block border-0 outline-0  m-0 w-full bg-transparent rounded-3xl focus:border-0 focus:ring-0 '/>
 
                     </div>
                     <button type='button' className='text-2xl'>
