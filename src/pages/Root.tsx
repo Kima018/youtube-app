@@ -6,7 +6,6 @@ function Root () {
     return (
         <>
             <MainNavigation/>
-            {/*<SideMenu/>*/}
             <Outlet/>
         </>
     );

@@ -1,5 +1,6 @@
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import Root from "./pages/Root.tsx";
+import Home from "./pages/Home.tsx";
 
 
 function App() {
@@ -7,7 +8,9 @@ function App() {
         {
             path: '/',
             element: <Root/>,
-            children: []
+            children: [
+                {path:'', element:<Home/>}
+            ]
         }
     ])
 
