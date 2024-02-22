@@ -1,6 +1,7 @@
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import Root from "./pages/Root.tsx";
 import Home from "./pages/Home.tsx";
+import {RecoilRoot} from "recoil";
 
 
 function App() {
@@ -9,13 +10,13 @@ function App() {
             path: '/',
             element: <Root/>,
             children: [
-                {path:'', element:<Home/>}
+                {path: '', element: <Home/>}
             ]
         }
     ])
 
 
-    return <RouterProvider router={router}/>
+    return (<RecoilRoot><RouterProvider router={router}/></RecoilRoot>)
 
 }
 
