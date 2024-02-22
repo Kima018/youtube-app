@@ -10,7 +10,7 @@ function HomeSideMenu() {
 
     const setCategory = useSetRecoilState(categoryAtom)
 
-    return <aside className='h-full w-16 text-white mt-16'>
+    return <aside className='sticky top-16 left-0 h-full w-16 text-white mt-16'>
         <div className='h-full divide-y'>
             <ul className='py-2'>
                 <li>
@@ -20,7 +20,7 @@ function HomeSideMenu() {
                 </li>
                 <li>
                     <HomeSideButton handleClick={() => {
-                        setCategory(27)
+                        setCategory(26)
                     }} icon={<MdCastForEducation/>}>Education</HomeSideButton>
                 </li>
                 <li>

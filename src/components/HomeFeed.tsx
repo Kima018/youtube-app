@@ -1,29 +1,31 @@
 import FeedItem from "./FeedItem.tsx";
-import {useRecoilValue} from "recoil";
+import {useRecoilState, useRecoilValue} from "recoil";
 import {categoryAtom} from "../store/categoryAtom.ts";
 import {API_KEY} from "../../data.ts";
-import {useEffect, useState} from "react";
+import {dataAtom} from "../store/dataAtom.tsx";
 
-function HomeFeed(){
+import {useFetchData} from "../hooks/useFetchData.tsx";
+
+function HomeFeed() {
     const categoryValue = useRecoilValue(categoryAtom)
-    const [data, setData] = useState([])
+    const [data, setData] = useRecoilState(dataAtom)
+    const videoList_url = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=US&videoCategoryId=${categoryValue}&key=${API_KEY}`
 
-    const fetchData  = async ()=>{
-        const videoList_url = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=US&videoCategoryId=${categoryValue}&key=${API_KEY}`
-        await fetch(videoList_url).then(response=>response.json()).then(data => setData(data.items))
-    }
-
-    useEffect(()=>{
-        fetchData()
-    },[])
-
+    const tempData = useFetchData(videoList_url);
+    tempData && setData(tempData.items)
     console.log(data)
 
-    return<main className='mt-16 feed-grid pl-4 '>
-            <FeedItem/>
-        <FeedItem/>
-        <FeedItem/>
+    return <main className='mt-16 feed-grid pl-4 w-full '>
+        {data && data.map((item) => (
+            <FeedItem thumbnail={item.snippet.thumbnails.default.url}
+                      title={item.snippet.localized.title}
+                      channelTitle={item.snippet.channelTitle}
+                      viewCount={item.statistics.viewCount}
+                      publishedAt={item.snippet.localized.publishedAt}
+            />
+        ))}
 
-        </main>
+    </main>
 }
+
 export default HomeFeed

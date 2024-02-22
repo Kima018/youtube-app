@@ -17,7 +17,7 @@ function SideMenu() {
     return (
         <>
             <aside
-                className='flex flex-col h-screen w-60 relative left-0 top-0 bg-opacity-60 bg-neutral-500 pl-3 pt-3 text-white overflow-hidden '>
+                className='flex flex-col h-screen w-60 fixed left-0 top-0  bg-neutral-500 pl-3 pt-3 text-white overflow-hidden z-50 '>
                 <div className='flex'>
                     <button className='text-2xl p-2' onClick={handleClick}><TbMenu2/></button>
                     <Link to='/' className='p-2 flex justify-center items-center '><img className='h-5' src={MainLogo}
