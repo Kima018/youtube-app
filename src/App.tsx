@@ -3,10 +3,11 @@ import Root from "./pages/Root.tsx";
 import Home from "./pages/Home.tsx";
 import {RecoilRoot,} from "recoil";
 import {ErrorPage} from "./pages/ErrorPage.tsx";
+import SingleVideo from "./pages/SingleVideo.tsx";
 
 
 
-function App() {
+const App =()=> {
 
 
 
@@ -16,7 +17,8 @@ function App() {
             element: <Root/>,
             errorElement: <ErrorPage/>,
             children: [
-                {path: '', element: <Home/>}
+                {path: '', element: <Home/>},
+                {path:'/video/:categoryId/:videoId', element:<SingleVideo/>}
             ]
         }
     ])

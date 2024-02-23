@@ -9,16 +9,16 @@ import {useRecoilState} from "recoil";
 import {sideMenuState} from "../../store/sideMenuAtom.ts";
 
 
-function MainNavigation() {
+const MainNavigation=()=> {
     const [sideMenuSate, setSideMenuState] = useRecoilState(sideMenuState)
-    function handleClick(){
+    function handleOpenSideMenu(){
         setSideMenuState(!sideMenuSate)
     }
 
     return <nav
         className='fixed top-0 left-0 right-0 w-full min-h-10 flex justify-between items-center py-3 text-white px-3'>
         <div className='flex justify-center '>
-            <button className='text-2xl p-2' onClick={handleClick}><TbMenu2/></button>
+            <button className='text-2xl p-2' onClick={handleOpenSideMenu}><TbMenu2/></button>
             <Link to='/' className='p-2 flex justify-center items-center '><img className='h-5' src={MainLogo}
                                                                                 alt='Youtube'/></Link>
         </div>

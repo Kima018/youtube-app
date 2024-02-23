@@ -1,19 +1,33 @@
-import FeedItem from "./FeedItem.tsx";
-import {useRecoilState, useRecoilValue} from "recoil";
+import FeedItem from "../Templates/FeedItem.tsx";
+import {useRecoilState, useRecoilValue,} from "recoil";
+import {dataAtom} from "../store/dataAtom.tsx";
 import {categoryAtom} from "../store/categoryAtom.ts";
 import {API_KEY} from "../../data.ts";
-import {dataAtom} from "../store/dataAtom.tsx";
+import {useEffect} from "react";
 
-import {useFetchData} from "../hooks/useFetchData.tsx";
 
-function HomeFeed() {
+const HomeFeed = ()=> {
+    const [data, setData] = useRecoilState(dataAtom);
+
     const categoryValue = useRecoilValue(categoryAtom)
-    const [data, setData] = useRecoilState(dataAtom)
-    const videoList_url = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=US&videoCategoryId=${categoryValue}&key=${API_KEY}`
+    const HOME_VIDEOS_URL = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=US&videoCategoryId=${categoryValue}&key=${API_KEY}`
 
-    const tempData = useFetchData(videoList_url);
-    tempData && setData(tempData.items)
-    console.log(data)
+    const fetchData = async () => {
+        await fetch(HOME_VIDEOS_URL).then(response => response.json()).then(data => setData(data.items))
+    }
+    useEffect(() => {
+        fetchData()
+    }, [categoryValue]);
+
+    //
+    // useEffect(() => {
+    //    const data =  useFetchData()
+    //     setData(data.items)
+    // }, [categoryValue]);
+    //
+    //     const tempData =  useFetchData()
+    //     setData(tempData.items)
+
 
     return <main className='mt-16 feed-grid pl-4 w-full '>
         {data && data.map((item) => (
@@ -21,11 +35,11 @@ function HomeFeed() {
                       title={item.snippet.localized.title}
                       channelTitle={item.snippet.channelTitle}
                       viewCount={item.statistics.viewCount}
-                      publishedAt={item.snippet.localized.publishedAt}
+                      publishedAt={item.snippet.publishedAt}
             />
         ))}
 
     </main>
 }
 
-export default HomeFeed
+export default HomeFeed;

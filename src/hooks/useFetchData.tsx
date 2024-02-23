@@ -1,27 +1,16 @@
-// import {json} from "react-router-dom";
-import {useEffect, useState} from "react";
+import {useRecoilValue} from "recoil";
+import {categoryAtom} from "../store/categoryAtom.ts";
+import {API_KEY} from "../../data.ts";
 
-export const useFetchData = (URL) => {
-    const [data, setData] = useState(null);
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await fetch(URL);
-                if (!response.ok) {
-                   throw new Error('Could not fetch data')
-                } else {
-                    const json = await response.json()
-                    setData(json)
-                }
-            }catch (error){
-                throw new Error(error)
-            }
+export const useFetchData = async () => {
+    const categoryValue = useRecoilValue(categoryAtom)
+    const HOME_VIDEOS_URL = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=US&videoCategoryId=${categoryValue}&key=${API_KEY}`
 
-        }
-        fetchData()
+    const response = await fetch(HOME_VIDEOS_URL)
+    if (!response.ok) {
+        throw new Error("Something went wrong!")
+    }
+    return await response.json()
 
-    }, [URL])
-return data
 }
 
-// throw json({message: 'Could not fetch data'}, {status: 500})

@@ -1,5 +1,5 @@
 import {useRouteError} from "react-router-dom";
-import {PageContent} from "../components/PageContent.tsx";
+import {PageContent} from "../Templates/PageContent.tsx";
 
 export const ErrorPage= ()=>{
     const error = useRouteError();

@@ -5,7 +5,7 @@ import {BsMusicNote} from "react-icons/bs";
 import {IoCarSportOutline} from "react-icons/io5";
 import {useSetRecoilState} from "recoil";
 import {categoryAtom} from "../../store/categoryAtom.ts";
-import {HomeSideButton} from "../Buttons/HomeSideButton.tsx";
+import {HomeSideButton} from "../../Templates/Buttons/HomeSideButton.tsx";
 function HomeSideMenu() {
 
     const setCategory = useSetRecoilState(categoryAtom)
@@ -16,42 +16,42 @@ function HomeSideMenu() {
                 <li>
                     <HomeSideButton handleClick={() => {
                         setCategory(0)
-                    }} icon={<MdOutlineHome/>}>Home</HomeSideButton>
+                    }} icon={<MdOutlineHome/>}><p className='text-xs'>Home</p></HomeSideButton>
                 </li>
                 <li>
                     <HomeSideButton handleClick={() => {
                         setCategory(26)
-                    }} icon={<MdCastForEducation/>}>Education</HomeSideButton>
+                    }} icon={<MdCastForEducation/>}><p className='text-xs'>Education</p></HomeSideButton>
                 </li>
                 <li>
                     <HomeSideButton handleClick={() => {
                         setCategory(2)
-                    }} icon={<IoCarSportOutline/>}>Cars</HomeSideButton>
+                    }} icon={<IoCarSportOutline/>}><p className='text-xs'>Cars</p></HomeSideButton>
                 </li>
                 <li>
                     <HomeSideButton handleClick={() => {
                         setCategory(10)
-                    }} icon={<BsMusicNote/>}>Music</HomeSideButton>
+                    }} icon={<BsMusicNote/>}><p className='text-xs'>Music</p></HomeSideButton>
                 </li>
                 <li>
                     <HomeSideButton handleClick={() => {
                         setCategory(15)
-                    }} icon={<MdOutlinePets/>}>Pets</HomeSideButton>
+                    }} icon={<MdOutlinePets/>}><p className='text-xs'>Pets</p></HomeSideButton>
                 </li>
                 <li>
                     <HomeSideButton handleClick={() => {
-                        setCategory(19)
-                    }} icon={<MdOutlineTravelExplore/>}>Travel</HomeSideButton>
+                        setCategory(10)
+                    }} icon={<MdOutlineTravelExplore/>}><p className='text-xs'>Travel</p></HomeSideButton>
                 </li>
                 <li>
                     <HomeSideButton handleClick={() => {
                         setCategory(20)
-                    }} icon={<SiPcgamingwiki/>}>Gaming</HomeSideButton>
+                    }} icon={<SiPcgamingwiki/>}><p className='text-xs'>Gaming</p></HomeSideButton>
                 </li>
                 <li>
                     <HomeSideButton handleClick={() => {
-                        setCategory(30)
-                    }} icon={<BiCameraMovie/>}>Movies</HomeSideButton>
+                        setCategory(0)
+                    }} icon={<BiCameraMovie/>}><p className='text-xs'>Movies</p></HomeSideButton>
                 </li>
 
             </ul>

@@ -1,11 +1,12 @@
 import {useEffect, useRef, useState} from "react";
 
-function Dropdown({children, label}) {
+const Dropdown = ({children, label})=> {
     const [isOpen, setIsOpen] = useState(false)
     const menuRef = useRef()
 
 
     const handleClickOutside = (e: MouseEvent) :void => {
+        // @ts-ignore
         if (menuRef.current && !menuRef.current.contains(e.target)) {
             setIsOpen(false)
         }

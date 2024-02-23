@@ -5,12 +5,13 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
-    background: #0f0f0f ;
+@layer utilities{
+    body{
+        background: #0f0f0f ;
+        @apply font-sans
+    }
 }
-.menu-bg{
-    background: #282828;
-}
+
 
 .feed-grid{
     display: grid;
