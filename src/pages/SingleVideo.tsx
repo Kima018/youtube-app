@@ -4,6 +4,7 @@ return<div id='single-video-page-wrapper'>
         <div className='bg-red-600 h-56 w-full col-span-3 lg:col-span-2'></div>
         <div className='bg-yellow-200 h-56 w-full col-span-3 lg:col-span-1'><div></div></div>
     </div>
+
 </div>
 }
 
