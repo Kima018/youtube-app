@@ -5,6 +5,8 @@ const SingleVideo = ()=>{
     const {videoId,videoCategoryId} = useParams()
 
 
+
+
 return<div id='single-video-page-wrapper'>
     <div className='grid grid-cols-3 gap-4 px-3'>
         <PlayVideo videoId={videoId}/>
