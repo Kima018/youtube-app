@@ -36,6 +36,8 @@ const HomeFeed = ()=> {
                       channelTitle={item.snippet.channelTitle}
                       viewCount={item.statistics.viewCount}
                       publishedAt={item.snippet.publishedAt}
+                      itemCategoryID={item.snippet.categoryId}
+                      itemID={item.id}
             />
         ))}
 

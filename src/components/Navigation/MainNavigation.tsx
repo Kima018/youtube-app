@@ -16,7 +16,7 @@ const MainNavigation=()=> {
     }
 
     return <nav
-        className='fixed top-0 left-0 right-0 w-full min-h-10 flex justify-between items-center py-3 text-white px-3'>
+        className='fixed top-0 left-0 right-0 w-full min-h-10 flex justify-between items-center py-3 text-white px-3 bg-yt-dark'>
         <div className='flex justify-center '>
             <button className='text-2xl p-2' onClick={handleOpenSideMenu}><TbMenu2/></button>
             <Link to='/' className='p-2 flex justify-center items-center '><img className='h-5' src={MainLogo}
