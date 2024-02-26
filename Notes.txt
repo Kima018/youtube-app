@@ -1,0 +1,7 @@
+-create vite react app, template ts
+
+
+config{
+-absolute imports
+-folder structure
+}
