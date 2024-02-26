@@ -10,6 +10,11 @@
         background: #0f0f0f ;
         @apply font-sans
     }
+    .video-iframe{
+        height:37vw;
+        @apply w-full
+
+    }
 }
 
 .feed-grid{
