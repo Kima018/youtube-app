@@ -6,7 +6,7 @@ import RelatedVideoItem from "./RelatedVideoItem.tsx";
 const RelatedVideos = () => {
     const data = useRecoilValue(dataAtom)
 
-    return <div className='w-full flex flex-col justify-items-stretch col-span-3 lg:col-span-1'>
+    return <div className=' flex flex-col justify-items-stretch '>
         <div id='relatedVideos-categoriesBtns' className='overflow-hidden flex justify-center mb-3'>
             <div className='flex gap-3 justify-center overflow-x-auto'>
                 <Link to='/' className='bg-gray-200 text-black px-3 py-1 rounded'>All</Link>
