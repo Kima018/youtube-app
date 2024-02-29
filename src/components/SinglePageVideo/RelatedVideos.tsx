@@ -1,10 +1,10 @@
 import {Link} from "react-router-dom";
 import {useRecoilValue} from "recoil";
-import {dataAtom} from "../store/dataAtom.tsx";
+import {videosDataByCategory} from "../../store/videosDataByCategory.tsx";
 import RelatedVideoItem from "./RelatedVideoItem.tsx";
 
 const RelatedVideos = () => {
-    const data = useRecoilValue(dataAtom)
+    const data = useRecoilValue(videosDataByCategory)
 
     return <div className=' flex flex-col justify-items-stretch '>
         <div id='relatedVideos-categoriesBtns' className='overflow-hidden flex justify-center mb-3'>

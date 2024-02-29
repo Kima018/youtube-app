@@ -1,4 +1,4 @@
-import {viewsValueConvector} from "../utils/viewsValueConvector.ts";
+import {viewsValueConvector} from "../../utils/viewsValueConvector.ts";
 import moment from "moment/moment";
 import {Link} from "react-router-dom";
 

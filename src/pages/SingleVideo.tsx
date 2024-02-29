@@ -1,7 +1,7 @@
-import PlayVideo from "../components/PlayVideo.tsx";
+import PlayVideo from "../components/SinglePageVideo/PlayVideo.tsx";
 import {useParams} from "react-router-dom";
-import RelatedVideos from "../components/RelatedVideos.tsx";
-import VideoDetails from "../components/VideoDetails.tsx";
+import RelatedVideos from "../components/SinglePageVideo/RelatedVideos.tsx";
+import VideoDetails from "../components/SinglePageVideo/VideoDetails.tsx";
 
 
 const SingleVideo = () => {
@@ -11,7 +11,7 @@ const SingleVideo = () => {
         <div className='grid grid-cols-3 col-auto gap-4 px-3'>
             <div className='lg:col-span-2 col-span-3'>
                 <PlayVideo videoId={videoId}/>
-                <VideoDetails/>
+                <VideoDetails videoId={videoId}/>
             </div>
 
             <div className='w-full col-span-3 lg:col-span-1'>
