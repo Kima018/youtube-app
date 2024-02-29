@@ -18,7 +18,7 @@ const VideoDetails = ({videoId}) => {
         await fetch(channelDataUrl).then(res => res.json()).then(data => setChannelData(data.items[0]));
 
         const commentDataUrl = 'https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet%2Creplies&videoId=_VB39Jo8mAQ&key=[YOUR_API_KEY]'
-        await fetch(commentDataUrl)
+        await fetch(commentDataUrl).then(res => res.json()).then(data => setCommentsData(data.items[0]));
     }
 
 
