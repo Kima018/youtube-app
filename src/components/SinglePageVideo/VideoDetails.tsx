@@ -5,8 +5,8 @@ import {viewsValueConvector} from "../../utils/viewsValueConvector.ts";
 
 const VideoDetails = ({videoId}) => {
     const [videoApiData, setVideoApidata] = useState(null);
-    const [channelData, setChannelData] = useState(null)
-    const [commentsData,setCommentsData] = useState(null)
+    const [channelData, setChannelData] = useState(null);
+    const [commentsData,setCommentsData] = useState(null);
 
 
     const fetchVideoData = async () => {
@@ -20,7 +20,6 @@ const VideoDetails = ({videoId}) => {
         const commentDataUrl = 'https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet%2Creplies&videoId=_VB39Jo8mAQ&key=[YOUR_API_KEY]'
         await fetch(commentDataUrl).then(res => res.json()).then(data => setCommentsData(data.items[0]));
     }
-
 
     useEffect(() => {
         fetchVideoData()
