@@ -1,33 +1,19 @@
-import {atom, selector} from "recoil";
-import {API_KEY} from "../../data.ts";
+import {selector} from "recoil";
+import {videosByCategoryUrl} from "./fetchUrlAtoms.tsx";
+import {fetchData} from "../utils/fetchData.tsx";
 
-
-export const categoryAtom = atom({
-    key: 'category',
-    default: 0
-})
-
-export const videosByCategoryUrlSelector = selector({
-    key: "videosByCategorySelector",
-    get: ({get}) => {
-        const categoryValue = get(categoryAtom)
-        return `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=US&videoCategoryId=${categoryValue}&key=${API_KEY}`
-
-    }
-})
-
-export const videosDataByCategory = atom({
-    key: 'videosDataByCategory',
-    default: []
-});
 
 export const videosSelector = selector({
     key: "videosSelector",
     get: async ({get}) => {
-        const url = get(videosByCategoryUrlSelector);
-        const response = await fetch(url);
-        const jsonData= await response.json();
-        return jsonData.items;
+        const url = get(videosByCategoryUrl);
+        try {
+            const response = await fetchData(url);
+            return response.items;
+        } catch (error) {
+            console.log(error);
+            throw new Error('Greska pri API pozivu!');
+        }
     }
 });
 

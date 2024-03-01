@@ -1,28 +1,29 @@
-import {atom, selector} from "recoil";
+import { selector} from "recoil";
 import {API_KEY} from "../../data.ts";
+import {videoIdAtom} from "./defaultAtoms.tsx";
+import {singleVideoUrl} from "./fetchUrlAtoms.tsx";
+import {fetchData} from "../utils/fetchData.tsx";
 
 
-export const videoIdAtom = atom({
-    key: "videoIdAtom",
-    default: ''
-});
-
-export const currVideoCatetegoryIdAtom = atom({
-    key: "videoIdAtom",
-    default: ''
-});
 
 
 export const fetchVideoSelector = selector({
     key: "fetchVideoSelector",
     get: async ({get}) => {
-        const videoId = get(videoIdAtom)
-        const url = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=${videoId}&key=${API_KEY}`;
-        const response = await fetch(url);
-        const jsonData = await response.json();
-        return jsonData.items[0];
+        const url = get(singleVideoUrl);
+        try {
+            const response = await fetchData(url);
+            return response.items[0];
+        } catch (error) {
+            console.log(error);
+            throw new Error('Greska pri API pozivu!');
+        }
     }
 });
+// const url = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=${videoId}&key=${API_KEY}`;
+// const response = await fetch(url);
+// const jsonData = await response.json();
+// return jsonData.items[0];
 export const fetchChannelSelector = selector({
     key: "fetchChannelSelector",
     get: async ({get}) => {
@@ -49,7 +50,7 @@ export const fetchVideoCommentsSelector = selector({
 export const fetchRelatedVideosSelector = selector({
     key: "fetchRelatedVideosSelector",
     get: async ({get}) => {
-        const categoryId = get(currVideoCatetegoryIdAtom)
+        const categoryId = get(currVideoCategoryIdAtom)
         const url = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&regionCode=US&videoCategoryId=${categoryId}&key=${API_KEY}`
         const response = await fetch(url);
         const jsonData = await response.json();

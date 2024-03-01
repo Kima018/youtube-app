@@ -6,9 +6,7 @@ import {ErrorPage} from "./pages/ErrorPage.tsx";
 import SingleVideo from "./pages/SingleVideo.tsx";
 
 
-
-const App =()=> {
-
+const App = () => {
 
 
     const router = createBrowserRouter([
@@ -18,7 +16,7 @@ const App =()=> {
             errorElement: <ErrorPage/>,
             children: [
                 {path: '', element: <Home/>},
-                {path:'/video/:categoryId/:videoId', element:<SingleVideo/>}
+                {path: '/video/:categoryId/:videoId', element: <SingleVideo/>}
             ]
         }
     ])

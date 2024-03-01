@@ -4,8 +4,9 @@ import {SiPcgamingwiki} from "react-icons/si";
 import {BsMusicNote} from "react-icons/bs";
 import {IoCarSportOutline} from "react-icons/io5";
 import {useSetRecoilState} from "recoil";
-import {categoryAtom} from "../../store/videosDataByCategory.tsx";
+
 import {HomeSideButton} from "../../Templates/Buttons/HomeSideButton.tsx";
+import {categoryAtom} from "../../store/defaultAtoms.tsx";
 function HomeSideMenu() {
 
     const setCategory = useSetRecoilState(categoryAtom)

@@ -3,15 +3,20 @@ import {useParams} from "react-router-dom";
 import RelatedVideos from "../components/SinglePageVideo/RelatedVideos.tsx";
 import VideoDetails from "../components/SinglePageVideo/VideoDetails.tsx";
 import {useSetRecoilState} from "recoil";
-import {currVideoCatetegoryIdAtom, videoIdAtom} from "../store/singleVideoData.tsx";
+import {useEffect} from "react";
+import {videoIdAtom} from "../store/defaultAtoms.tsx";
 
 
 const SingleVideo = () => {
     const {videoId, categoryId} = useParams()
-    const setVideoId = useSetRecoilState(videoIdAtom)
-    const setCurrCategory = useSetRecoilState(currVideoCatetegoryIdAtom)
-    setVideoId(videoId)
-    setCurrCategory(categoryId)
+    // const setVideoId = useSetRecoilState(videoIdAtom)
+    // const setCurrCategory = useSetRecoilState(currVideoCategoryIdAtom)
+    //
+    // useEffect(() => {
+    //     setVideoId(videoId)
+    //     setCurrCategory(categoryId)
+    // }, []);
+
 
 
     return <div id='single-video-page-wrapper' className='mt-16'>
