@@ -2,34 +2,55 @@ import {useEffect, useState} from "react";
 import {API_KEY} from "../../../data.ts";
 import moment from "moment";
 import {viewsValueConvector} from "../../utils/viewsValueConvector.ts";
+import {useRecoilValueLoadable} from "recoil";
+import {fetchChannelSelector, fetchVideoCommentsSelector, fetchVideoSelector} from "../../store/singleVideoData.tsx";
 
 const VideoDetails = ({videoId}) => {
     const [videoApiData, setVideoApidata] = useState(null);
     const [channelData, setChannelData] = useState(null);
     const [commentsData,setCommentsData] = useState(null);
+    const videoData = useRecoilValueLoadable(fetchVideoSelector);
+    const tempData = useRecoilValueLoadable(fetchChannelSelector);
+    const comments2Data = useRecoilValueLoadable(fetchVideoCommentsSelector);
 
 
-    const fetchVideoData = async () => {
-        const videoDetailsUrl = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=${videoId}&key=${API_KEY}`;
-        await fetch(videoDetailsUrl).then(res => res.json()).then(data => setVideoApidata(data.items[0]));
+
+    switch (comments2Data.state) {
+        case "hasValue":
+            console.log(comments2Data.contents)
     }
+
+
+    switch (videoData.state) {
+        case "hasValue":
+            console.log(videoData.contents)
+    }
+
+    switch (tempData.state) {
+        case "hasValue":
+            console.log(tempData.contents)
+    }
+
+
+
     const fetchOtherData = async () => {
         const channelDataUrl = `https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&id=${videoApiData.snippet.channelId}&key=${API_KEY}`
         await fetch(channelDataUrl).then(res => res.json()).then(data => setChannelData(data.items[0]));
 
-        const commentDataUrl = 'https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet%2Creplies&videoId=_VB39Jo8mAQ&key=[YOUR_API_KEY]'
         await fetch(commentDataUrl).then(res => res.json()).then(data => setCommentsData(data.items[0]));
     }
 
-    useEffect(() => {
-        fetchVideoData()
-    }, []);
 
 
-    useEffect(() => {
-        fetchOtherData()
-
-    }, [videoApiData]);
+    // useEffect(() => {
+    //     fetchVideoData()
+    // }, []);
+    //
+    //
+    // useEffect(() => {
+    //     fetchOtherData()
+    //
+    // }, [videoApiData]);
 
 
     return <div className='w-full flex flex-col gap-3 pt-4'>

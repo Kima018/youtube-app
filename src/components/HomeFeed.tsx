@@ -4,10 +4,7 @@ import {videosSelector} from "../store/videosDataByCategory.tsx";
 
 
 const HomeFeed = () => {
-
-
     const loadVideosData = useRecoilValueLoadable(videosSelector);
-
 
     switch (loadVideosData.state) {
         case "loading":
@@ -17,7 +14,6 @@ const HomeFeed = () => {
         case "hasValue":
             // eslint-disable-next-line no-case-declarations
             const videos = loadVideosData.contents;
-            console.log(videos);
 
             return <main className='mt-16 feed-grid pl-4 w-full '>
                 {videos.map((item, index) => (
@@ -31,21 +27,7 @@ const HomeFeed = () => {
                               videoID={item.id}
                     />
                 ))}
-
             </main>
     }
-
-
 }
-
 export default HomeFeed;
-
-//   kako da resim ovo?
-//   const data = useRecoilValue(videosDataByCategory)
-//   const selectedCategory = useRecoilValue(categoryAtom)
-//
-// try {
-//     useFetchData()
-// }catch (error){
-//       throw new Error(error)
-// }

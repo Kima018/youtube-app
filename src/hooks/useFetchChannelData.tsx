@@ -1,7 +1,7 @@
 import {API_KEY} from "../../data.ts";
 import {useEffect} from "react";
 import {useSetRecoilState} from "recoil";
-import {channelData} from "../store/channelDataAtom.tsx";
+import {channelData} from "../store/singleVideoData.tsx";
 
 export const useFetchChannelData = async (channelID) => {
     const setData = useSetRecoilState(channelData)
