@@ -53,7 +53,7 @@ export const videoCommentsUrl: RecoilState<string> = atom({
         key: 'videoCommentsUrlSelector',
         get: ({get}): string => {
             const videoId: string = get(videoIdAtom)
-            return `https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet%2Creplies&videoId=${videoId}=${API_KEY}`
+            return `https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet%2Creplies&maxResults=50&videoId=${videoId}&key=${API_KEY}`
         }
     })
 });

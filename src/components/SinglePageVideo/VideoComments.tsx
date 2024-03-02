@@ -1,16 +1,11 @@
 import CommentItem from "../../Templates/CommentItem.tsx";
 
-const VideoComments = () => {
+const VideoComments = ({commentsData}) => {
+
     return <div className=''>
-        <CommentItem/>
-        <CommentItem/>
-        <CommentItem/>
-        <CommentItem/>
-        <CommentItem/>
-        <CommentItem/>
-
-
-
+        {commentsData.map((item, index) => (<CommentItem key={index}/>))}
     </div>
+
+
 }
 export default VideoComments
