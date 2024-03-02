@@ -6,7 +6,6 @@ import {videosSelector} from "../store/videosDataByCategory.tsx";
 const HomeFeed = () => {
     const videoData = useRecoilValueLoadable(videosSelector);
 
-
     switch (videoData.state) {
         case "loading":
             return <div>Loading...</div>;
@@ -29,3 +28,5 @@ const HomeFeed = () => {
     }
 }
 export default HomeFeed;
+
+

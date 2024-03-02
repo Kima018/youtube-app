@@ -2,7 +2,6 @@ import HomeSideMenu from "../components/SideMenu/HomeSideMenu.tsx";
 import HomeFeed from "../components/HomeFeed.tsx";
 
 
-
 function Home() {
 
 

@@ -6,10 +6,10 @@ import {IoCarSportOutline} from "react-icons/io5";
 import {useSetRecoilState} from "recoil";
 
 import {HomeSideButton} from "../../Templates/Buttons/HomeSideButton.tsx";
-import {categoryAtom} from "../../store/defaultAtoms.tsx";
+import {categoryIdAtom} from "../../store/idAtoms.tsx";
 function HomeSideMenu() {
 
-    const setCategory = useSetRecoilState(categoryAtom)
+    const setCategory = useSetRecoilState(categoryIdAtom)
 
     return <aside className='sticky top-16 left-0 h-full w-16 text-white mt-16'>
         <div className='h-full divide-y'>

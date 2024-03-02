@@ -1,5 +1,5 @@
 import {selector} from "recoil";
-import {videosByCategoryUrl} from "./fetchUrlAtoms.tsx";
+import {videosByCategoryUrl} from "./urlsAtoms.tsx";
 import {fetchData} from "../utils/fetchData.tsx";
 
 

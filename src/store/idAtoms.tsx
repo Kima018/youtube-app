@@ -1,7 +1,7 @@
 import {atom, RecoilState} from "recoil";
 
 
-export const categoryAtom:RecoilState<number> = atom({
+export const categoryIdAtom:RecoilState<number> = atom({
     key: 'category',
     default: 0
 });
@@ -12,5 +12,9 @@ export const videoIdAtom:RecoilState<string> = atom({
 
 export const currVideoCategoryIdAtom:RecoilState<string> = atom({
     key: "currVideoCategoryIdAtom",
+    default: ''
+});
+export const channelIdAtom:RecoilState<string> = atom({
+    key: "channelIdAtom",
     default: ''
 });
