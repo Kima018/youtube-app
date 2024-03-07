@@ -14,7 +14,9 @@ export const currVideoCategoryIdAtom:RecoilState<string> = atom({
     key: "currVideoCategoryIdAtom",
     default: ''
 });
+
 export const channelIdAtom:RecoilState<string> = atom({
     key: "channelIdAtom",
     default: ''
 });
+
