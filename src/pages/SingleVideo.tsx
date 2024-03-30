@@ -25,6 +25,8 @@ const SingleVideo = () => {
 
 
 
+
+
     useEffect(() => {
         if (videoData.state === 'hasValue'){
             setChannelId(videoData.contents.snippet.channelId)
