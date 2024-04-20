@@ -17,6 +17,7 @@ export const videosByCategoryUrl: RecoilState<string> = atom({
     })
 });
 
+
 export const singleVideoUrl: RecoilState<string> = atom({
     key: "singleVideoUrl",
     default: selector({
